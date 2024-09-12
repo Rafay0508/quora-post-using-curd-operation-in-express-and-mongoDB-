@@ -1,0 +1,130 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quora Posts</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+      .post {
+        background: #fff;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .post img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .post h2 {
+        margin: 0 0 10px;
+      }
+      .post p {
+        margin: 0 0 10px;
+      }
+      .post .likes {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Quora Post</h1>
+    <a href="/posts/new">Click to Create New Post </a>
+    <hr />
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap">
+      <% posts.forEach((post)=>{ %>
+
+      <div class="post">
+        <h2>@<%= post.username %></h2>
+        <p><%= post.content.text %></p>
+        <img
+          src="<%= post.content.image_url %>"
+          width="300px"
+          alt="Post Image"
+        />
+        <p></p>
+        <p class="likes">Likes: <%= post.content.likes %></p>
+        <button
+          style="
+            padding: 10px;
+            color: white;
+            background-color: rgb(68, 144, 206);
+            width: 80px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+          "
+        >
+          Like👍
+        </button>
+        <button
+          style="
+            padding: 10px;
+            color: white;
+            background-color: rgb(125, 137, 147);
+            width: 80px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+          "
+        >
+          share🔗
+        </button>
+        <h4>
+          <a href="/posts/<%= post.id %>">View Picture in Detail</a>
+        </h4>
+        <a
+          href="/posts/edit/<%=post.id%>"
+          style="text-decoration: none; color: white"
+        >
+          <button
+            style="
+              padding: 10px;
+              color: white;
+              background-color: rgb(68, 206, 68);
+              width: 80px;
+              font-size: 16px;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            Edit
+          </button></a
+        ><a
+          href="/posts/delete/<%= post.id %>"
+          style="text-decoration: none; color: white"
+        >
+          <button
+            style="
+              padding: 10px;
+              color: white;
+              background-color: rgb(206, 68, 68);
+              width: 80px;
+              font-size: 16px;
+              border: none;
+              cursor: pointer;
+            "
+          >
+            Delete
+          </button></a
+        >
+      </div>
+
+      <%})%>
+    </div>
+  </body>
+</html>

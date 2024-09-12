@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Post Detail</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 10px;
+        background-color: #f4f4f4;
+      }
+      .container {
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+      }
+      .post-detail {
+        background: #fff;
+        margin: 20px 0;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .post-detail img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+      }
+      .post-detail h1 {
+        margin: 0 0 10px;
+      }
+      .post-detail p {
+        margin: 0 0 10px;
+      }
+      .post-detail .likes {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <a href="/posts">back</a>
+      <div class="post-detail">
+        <h1>Post by @<%= post.username %></h1>
+        <p><%= post.content.text %></p>
+        <img src="<%= post.content.image_url %>" alt="Post Image" />
+        <p></p>
+        <p class="likes">Likes: <%= post.content.likes %></p>
+
+        <button>like</button>
+        <button>share</button>
+      </div>
+    </div>
+  </body>
+</html>
